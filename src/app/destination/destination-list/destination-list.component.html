@@ -1,0 +1,39 @@
+<a mat-button routerLink="/createDestination" routerLinkActive="mat-accent" *ngIf="this.authService.getUserDetails().isAdmin">Create New Destination</a>
+<br>
+<mat-form-field style="margin:15px" *ngIf="this.destinations.length != 0">
+  <input matInput  (keyup)="applyFilter($event.target.value)" placeholder="Serach by values">
+</mat-form-field>
+
+<mat-table #table mat-elevation-z8 [dataSource]="dataSource" matSort [hidden]="this.destinations.length == 0">
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="country">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Country</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.country}} </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="city">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>City</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <div>
+        <button class="btn btn-primary PadRight" [routerLink]="['/editDestination', element.id]" [hidden]="!authService.getUserDetails().isAdmin">Update</button>
+        <button class="btn btn-danger PadRight" (click)="DeleteItem(element)" [hidden]="!authService.getUserDetails().isAdmin">Delete</button>
+
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons [hidden]="this.destinations.length == 0"></mat-paginator>
+<p class="info-text mat-body-1" *ngIf="this.destinations.length == 0">No destinations available in system!</p>

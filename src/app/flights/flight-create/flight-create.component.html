@@ -1,0 +1,33 @@
+<mat-card>
+    <div class="form">
+<form [formGroup]="flightForm" class="flight-container" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" formControlName="takeoff" [(ngModel)]="takeOffDate" placeholder="Take Off Time" required readonly>
+        <owl-date-time [pickerType]="'both'" #dt1></owl-date-time>
+        <mat-error>Takeoff Date not valid</mat-error>
+      </mat-form-field>
+
+        <mat-form-field>
+      <input matInput [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2" formControlName="landing" [min]="takeOffDate" placeholder="Landing Time" required readonly>
+        <owl-date-time [pickerType]="'both'" #dt2></owl-date-time>
+        <mat-error>Landing Date not valid</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Price" formControlName="price" required>
+        <mat-error>Price must contain valid number</mat-error>
+      </mat-form-field>
+    
+      <mat-form-field>
+          <mat-select placeholder="Destination" [(ngModel)]="selectedDestination" formControlName="destination" (selectionChange)="onOptionSelected($event.value)" required readonly>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let destination of destinations" [value]="destination"> {{destination}} </mat-option>
+          </mat-select>
+        </mat-form-field>              
+    <button mat-raised-button class="button" type="submit" [disabled]="!flightForm.valid">
+      <span *ngIf="!isLoading">Save Flight</span>
+      <mat-spinner *ngIf="isLoading" class="spinner" color="accent" [diameter]="27"></mat-spinner>
+    </button>
+  </form>
+  </div>
+</mat-card>

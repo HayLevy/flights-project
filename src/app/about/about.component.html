@@ -1,0 +1,46 @@
+
+<div class="container ">
+  <div class="panel padding-16 card ">
+      <h2>About us</h2>
+
+      <div class="about">
+          TakeAFlight compares millions of cheap flights from international and local companies such as El Al, Gulliver,
+          Smartair, etc to find you the cheapest flight tickets fast. Whether you want to go to London or Bangkok,
+          we'll find low cost flights to get you there.
+
+          When you find your flights and click to book, we link you through directly to the airline or travel agent to book
+          flights with them. We don´t add any hidden charges or fees. So you get the cheapest flights every time!
+          TakeAFlight is an award winning flight search site that has been recommended by local and international media such as
+          Walla News, Hamagazin, TheMarker and more! TakeAFlight has been consistently found to be comprehensive, fast, and the
+          best way to find cheap flights, as well as last minute flights.
+      </div>
+      <div>
+        <h4 class="padding-16 right" >get our best price!</h4>
+      <h4 class="padding-16 half" >Watch our amazing variety!</h4>
+
+      <div id="chart" >
+
+      <ngx-charts-bar-vertical class="half"
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="single"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel">
+    </ngx-charts-bar-vertical>
+<div class="half pad" >
+        <ngx-charts-pie-chart
+          [view]="[600, 400]"
+          [results]="multi"
+          [explodeSlices]="false"
+          [doughnut]="false">
+        </ngx-charts-pie-chart>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>

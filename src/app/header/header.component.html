@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+
+<mat-toolbar color="primary">
+  
+    <a routerLink="/">Take A Flight</a>
+
+  <!-- <span class="spacer"></span> -->
+  <ul>
+    <li>
+      <a mat-button routerLink="/About" routerLinkActive="mat-accent">About Us</a>
+    </li>
+    <li>
+      <a mat-button routerLink="/get" routerLinkActive="mat-accent" *ngIf="this.authService.isAuthenticated()">All
+        Flights</a>
+    </li>
+    <li>
+      <a mat-button routerLink="/getDestinations" routerLinkActive="mat-accent" *ngIf="this.authService.isAuthenticated()">All
+        Destinations</a>
+    </li>
+    <li>
+      <a mat-button routerLink="/bestOffer" routerLinkActive="mat-accent" >
+        Our best offer</a>
+    </li>
+  </ul>
+  <span class="spacer"></span>
+  <div class="d-flex justify-content-center h-100">
+    <div class="searchbar">
+      <input class="search_input" (keyup.enter)="onSearch()" [(ngModel)]="searchText" type="text" name="" placeholder="Search...">
+      <span class="search_icon" (click)="onSearch()"><i class="fas fa-search"></i></span>
+    </div>
+  </div>
+  <ul>
+        <li>
+            <a routerLinkActive="mat-accent" *ngIf="this.authService.isAuthenticated() && this.authService.getUserDetails().isAdmin">
+                <mat-icon style="display:inline-block; vertical-align:middle;">portrait</mat-icon> - <span style="display:inline-block; vertical-align:middle;" [innerText]="counter"></span></a> 
+        </li>
+      <li>
+          <a mat-button routerLink="/viewOrders" routerLinkActive="mat-accent" *ngIf="this.authService.isAuthenticated()">My
+            Orders</a>
+        </li>
+    <li>
+      <a mat-button routerLink="/viewCart" routerLinkActive="mat-accent" *ngIf="this.authService.isAuthenticated()">
+        <mat-icon>shopping_cart</mat-icon> - <span [innerText]="numItems"></span>
+      </a>
+    </li>
+    <li>
+      <a mat-button routerLink="/registration" routerLinkActive="mat-accent" *ngIf="!this.authService.isAuthenticated()">Register</a>
+
+    </li>
+    <li>
+      <a mat-button routerLink="/login" routerLinkActive="mat-accent" *ngIf="!this.authService.isAuthenticated()">Login</a>
+      <app-user-counter [(counter)]="counter"></app-user-counter>
+      <a routerLinkActive="mat-accent" *ngIf="this.authService.isAuthenticated()">hello
+        '{{authService.getUserDetails().firstName}}' </a>
+    </li>
+  </ul>
+</mat-toolbar>

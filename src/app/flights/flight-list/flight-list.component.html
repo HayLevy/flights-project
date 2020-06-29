@@ -1,0 +1,46 @@
+<a mat-button routerLink="/create" routerLinkActive="mat-accent" *ngIf="this.authService.getUserDetails().isAdmin">Create New Flight</a>
+
+<mat-table #table mat-elevation-z8 [dataSource]="dataSource" matSort [hidden]="this.flights.length == 0">
+  <ng-container matColumnDef="Destination">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Destination</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.destination.country}},{{element.destination.city}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="takeoff">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> takeoff</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.takeoff}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="landing">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> landing</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.landing}} </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="price">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> price</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <div>
+        <button class="btn btn-success PadRight" (click)="AddToCart(element)" *ngIf="!IsItemInCart(element)">Add to Cart</button>
+        <button class="btn btn-primary PadRight" [routerLink]="['/edit', element.id]" *ngIf="authService.getUserDetails().isAdmin" >Update</button>
+        <button class="btn btn-danger PadRight" (click)="DeleteItem(element)" *ngIf="authService.getUserDetails().isAdmin">Delete</button>
+
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20,50]" showFirstLastButtons [hidden]="this.flights.length == 0"></mat-paginator>
+<p class="info-text mat-body-1" *ngIf="this.flights.length == 0">No flights available in system!</p>

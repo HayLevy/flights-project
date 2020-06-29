@@ -1,0 +1,49 @@
+<mat-card>
+    <div class="form">
+<mat-toolbar>
+  <mat-toolbar-row>
+    <mat-icon class="header-icon">edit</mat-icon>
+    <span>Registration</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<form [formGroup]="registrationForm" class="registration-container" (ngSubmit)="onSubmit()">
+  <mat-form-field class="form-field" color="accent">
+    <input matInput placeholder="Enter username" type="text" formControlName="username" minlength="4" required>
+    <mat-error>Username is too short</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-field" color="accent">
+    <input matInput placeholder="Enter password" type="password" formControlName="password" minlength="8" required>
+    <mat-error>Password is too short</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-field" color="accent">
+    <input matInput placeholder="Enter email" type="text" formControlName="email" required>
+    <mat-error>The email isn't valid</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-field" color="accent">
+    <input matInput placeholder="Enter first name" type="text" formControlName="firstName" required>
+    <mat-error>First name is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-field" color="accent">
+    <input matInput placeholder="Enter last name" type="text" formControlName="lastName" required>
+    <mat-error>Last name is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+      <input matInput [matDatepicker]="birthdate" formControlName="birthdate" placeholder="Birth date" [max]="todayDate" required readonly>
+      <mat-datepicker-toggle matSuffix [for]="birthdate"></mat-datepicker-toggle>
+      <mat-datepicker #birthdate disabled="false"></mat-datepicker>
+      <mat-error>birth date is empty</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button class="registration-button" type="submit" [disabled]="!registrationForm.valid">
+    <span *ngIf="!isLoading">Register</span>
+    <mat-spinner *ngIf="isLoading" class="spinner" color="accent" [diameter]="27"></mat-spinner>
+  </button>
+</form>
+</div>
+</mat-card>

@@ -1,0 +1,21 @@
+<mat-card>
+  <div class="form">
+<form [formGroup]="destinationForm" class="destination-container" (ngSubmit)="onSubmit()">
+
+    <mat-form-field>
+      <input matInput placeholder="Country" formControlName="country" required>
+      <mat-error>Destination country should contain only letters.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="City" formControlName="city" required>
+      <mat-error>Destination city should contain only letters.</mat-error>
+    </mat-form-field>
+             
+  <button mat-raised-button class="button" type="submit" [disabled]="!destinationForm.valid">
+    <span *ngIf="!isLoading">Save Destination</span>
+    <mat-spinner *ngIf="isLoading" class="spinner" color="accent" [diameter]="27"></mat-spinner>
+  </button>
+</form>
+</div>
+</mat-card>

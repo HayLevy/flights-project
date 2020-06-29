@@ -1,0 +1,49 @@
+mat-form-field,
+textarea {
+  width: 100%;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+.header-icon {
+  margin-right: 10px;
+}
+
+.flight-container {
+  width: 250px;
+  flex-direction: column;
+}
+
+div.form
+{
+    display: block;
+    text-align: center;
+}
+
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.form-field {
+  margin-bottom: 10px;
+}
+
+.button {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.spinner {
+  margin: 5px;
+}
+
+owl-date-time {
+  margin: 5px;
+}

@@ -1,0 +1,60 @@
+<div class="search">
+  <form [formGroup]="searchOrderGroup" (ngSubmit)="onSubmit()">
+  
+    <label class="space">Destination:</label>
+    <select [(ngModel)]="selectedDestination" formControlName="destination" (ngModelChange)="onOptionSelected($event)" required readonly>
+      <option selected>None</option>
+      <option *ngFor="let destination of destinations" [value]="destination"> {{destination}} </option>
+    </select>
+    
+    <label class="space">Takeoff:</label>
+    <input [matDatepicker]="TakeOffDatePicker" formControlName="takeoffSearch" placeholder="Earliest Take Off Date" required readonly>
+    <mat-datepicker-toggle matSuffix [for]="TakeOffDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #TakeOffDatePicker disabled="false"></mat-datepicker>
+    
+    <label class="space">Price:</label>
+    <input type="number" min="1" class="input" name="price" formControlName="price" placeholder="Price Max Limit"/>
+  
+    <button class="space button dark-grey" type="submit" [disabled]="!searchOrderGroup.valid">Search orders</button>
+  </form>
+</div>
+
+
+<mat-table #table mat-elevation-z8 [dataSource]="dataSource" matSort [hidden]="this.orders.length == 0">
+  
+  <ng-container matColumnDef="Destination">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Destination</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.flight.destination.country}},{{element.flight.destination.city}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="takeoff">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Takeoff</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.flight.takeoff}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="landing">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Landing</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.flight.landing}} </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="price">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.flight.price}} </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="quantity">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
+    </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+<mat-paginator  [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons [hidden]="this.orders.length == 0"></mat-paginator>
+
+<p class="info-text mat-body-1" *ngIf="this.orders.length == 0">No orders done yet!</p>

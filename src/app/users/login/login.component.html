@@ -1,0 +1,27 @@
+<mat-card>
+    <div class="form">
+<mat-toolbar>
+  <mat-toolbar-row>
+    <mat-icon class="header-icon">person_pin</mat-icon>
+    <span>Login</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<form [formGroup]="loginForm" class="login-container" (ngSubmit)="onSubmit()">
+  <mat-form-field class="form-field" color="accent">
+    <input matInput placeholder="Enter username" type="text" formControlName="username" minlength="4" required>
+    <mat-error>Username is too short</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-field" color="accent">
+    <input matInput placeholder="Enter password" type="password" formControlName="password" minlength="6" required>
+    <mat-error>Password is too short</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button class="login-button" type="submit" [disabled]="!loginForm.valid">
+    <span *ngIf="!isLoading">Login</span>
+    <mat-spinner *ngIf="isLoading" class="spinner" color="accent" [diameter]="27"></mat-spinner>
+  </button>
+</form>
+</div>
+</mat-card>

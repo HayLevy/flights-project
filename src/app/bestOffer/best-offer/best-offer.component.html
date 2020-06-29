@@ -1,0 +1,28 @@
+<mat-card>
+  <div class="form">
+<form class="bestOffer-container" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
+  <!-- <div class="quarter"> -->
+  <div class="wrapper center">
+    <img class="center" src="../../../assets/images/Berlin.jpeg" alt="Berlin" style="width:50%;">
+    <h3 style="text-align: center; margin-top: 20px;">OUR BEST OFFER BY USERS SEARCHES </h3>
+    <p *ngIf="DestinationValue!=null">{{ DestinationValue | DestinationCustumePipe }}</p>
+    <span *ngIf="DestinationValue==null">Sorry, no destinations available for now</span>
+    <p *ngIf="DestinationValue!=null">
+        We colect information from users from all over the world about the best destination.
+        We promise you the best price with the best efforts.
+        Don't forget to rate us.
+        Have FUN !! :)
+    </p>
+    <aside *ngIf="DestinationValue!=null">from 30$</aside>
+  </div>
+             
+  <button mat-raised-button class="button center" type="submit" [hidden]="DestinationValue==null" >
+    
+    <span *ngIf="!isLoading">Search flight now</span>
+    <mat-spinner *ngIf="isLoading" class="spinner" color="accent" [diameter]="27"></mat-spinner>
+  </button>
+  
+</form>
+<mat-spinner *ngIf="isLoading" class="spinner" color="accent" [diameter]="27"></mat-spinner>
+</div>
+</mat-card>

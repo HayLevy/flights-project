@@ -1,0 +1,23 @@
+
+.about {
+    -webkit-column-count: 3;
+    -moz-column-count: 3; 
+    column-count: 3;
+}
+
+.container, .panel {
+    padding: 0.01em 16px;
+}
+.padding-16 {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important
+}
+.w3-col, .half, .w3-third, .w3-twothird, .w3-threequarter, .w3-quarter {
+    float: left;
+    width: 50%
+}
+.right{
+    float: right;
+    width: 50%;
+    text-align: center
+}

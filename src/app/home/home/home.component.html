@@ -1,0 +1,114 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<header class="display-container content" style="max-width:1500px;">
+  <img class="image" src="../../../assets/images/aeroplane-air-aircraft-1004584.jpg" alt="Photo by Oleksandr Pidvalnyi from Pexels">
+  <div class="display-left padding w3-col l6 m8">
+    <div class="container orange">
+      <img class="slideRight" src="../../../assets/images/airplane-11-64.png" alt="plane" align="left" style="width:7%; padding:2px;" />
+      <h2>Order Flight</h2>
+    </div>
+    <div class="container white padding-16">
+      <form [formGroup]="SearchFligthGroup"  (ngSubmit)="onSubmit()">
+        <div class="row-padding" style="margin:0 -16px;">
+          <div class="half margin input">
+            <label class="destSelect">Travel the world with us:</label>
+
+            <select  [(ngModel)]="selectedDestination" formControlName="destination" (ngModelChange)="onOptionSelected($event)" required readonly>
+              <option selected>None</option>
+              <option  *ngFor="let destination of destinations" [value]="destination"> {{destination}}
+              </option>
+            </select>
+            <span></span>
+          </div>
+        </div>
+        <div class="half">
+          <label>Takeoff: </label>
+          <input type="date" class="input" name="takeoff" id="DateSearchInput" formControlName="takeoff" value="2019-01-08" />
+        </div>
+
+        <div class="half">
+          <label>Price:</label>
+          <input type="number" min="1" class="input" name="price" formControlName="price" placeholder="price range" />
+        </div>
+
+
+        <div class="row-padding" style="margin:8px -16px;"></div>
+        <div class="half margin-bottom"></div>
+        <button class="button dark-grey" type="submit" [disabled]="!SearchFligthGroup.valid">Search flights</button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<div class="container margin-top">
+  <h3>Good Offers Right Now</h3>
+  <h6>Up to <strong>50%</strong> discount.</h6>
+</div>
+<div class="w3-row-padding w3-padding-16 w3-center" id="food">
+  <div class="quarter">
+      <img src="../../../assets/images/paris.jpg" alt="Paris" style="width:100%">
+      <h3>PARIS: The perfect long weekend</h3>
+      <p>
+          The famed City of Love, Paris will always hold a special spot in our hearts.
+          From iconic architecture to world-famous cuisine, this city exudes sophistication,
+          style, and romance.  Sail the Seine, cycle the Gardens of Versailles, and indulge in
+          some of the finest food in the world in the majestic crown of France.
+      </p>
+      <aside>from 90$</aside>
+  </div>
+  <div class="quarter">
+      <img src="../../../assets/images/amsterdam.jpg" alt="Amsterdam" style="width:100%">
+      <h3>AMSTERDAM: Let us tell you about this beuty city</h3>
+      <p>
+          Amsterdam is one of us favorite cities in the world. Its brick buildings, open skyline,
+          rich history, and relaxed, easy going attitude towards life. Spent countless hours walking the city,
+          making friends with locals, and getting under its skin.
+          The beauty of the canals and historic homes, the friendly nature of the Dutch,
+          the museums, the parks, and the quality of life. The international feel of the city,
+          the cafe culture, the art, the exploding entrepreneur scene,
+          and the rise of good beer bars! In short, You will love it all.
+      </p>
+      <aside>from 120$</aside>
+  </div>
+  <div class="quarter">
+      <img src="../../../assets/images/Berlin.jpeg" alt="Berlin" style="width:100%">
+      <h3>BERLIN: Thriving art & culture in the new germany</h3>
+      <p>
+          In the nearly three decades since the fall of the Wall,
+          no other European city has undergone a greater transformation than Berlin.
+          Bold designs by some of the world's most renowned architects including Frank Gehry,
+          Daniel Libeskind, and Norman Foster have sparked the city's renaissance, while
+          thought-provoking monuments have redefined her urban space.  Immerse yourself in Berlin's
+          boundless energy during a perfect week in this vibrant capital.
+      </p>
+       <aside>from 100$</aside>
+  </div>
+  <div class="quarter">
+      <img src="../../../assets/images/prague.jpg" alt="Pargue" style="width:100%">
+      <h3>PRAGUE: A beautiful city by the river</h3>
+      <p>
+          The Czech Republic’s capital is full of amazing sights of great value.
+          But Charles Bridge definitely belongs among the TOP 5 most amazing ones.
+          Not only is this medieval building one of the most famous bridges in the world,
+          but it is also inseparably connected to the most glamorous era of Prague and –
+          last but not least – it just might be the most beautiful bridge in Europe. And
+          we are not exaggerating at all.
+      </p>
+      <aside>from 90$</aside>
+  </div>
+</div>
+
+<!-- GoogleMapsAPI -->
+<div class="container ">
+  <div class="panel padding-16 card ">
+      <h2>Still undecided? Explore our map</h2>
+        <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+          <agm-marker 
+          *ngFor="let m of markers;"
+          [latitude]="m.lat"
+          [longitude]="m.long">
+      </agm-marker>
+        </agm-map>
+  </div>
+</div>
+
+

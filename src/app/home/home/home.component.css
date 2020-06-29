@@ -1,0 +1,415 @@
+agm-map {
+      height: 300px;
+    }
+
+@font-face {
+    font-family: 'Comfortaa';
+    src: url(../../../assets/fonts/Comfortaa-Regular.ttf);
+    font-style:normal;
+    font-weight:100;
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    src: url(../../../assets/fonts/Comfortaa-Bold.ttf);
+    font-style: normal;
+    font-weight: 600;
+}
+html {
+    box-sizing: border-box
+} 
+body {
+    margin: 0;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: Comfortaa, cursive,fantasy,Syncopate;
+    line-height: 1.5em;}
+
+h1, h2 {
+    text-shadow: 1px 1px #333;
+}
+
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+*, *:before, *:after {
+    box-sizing: inherit
+}
+
+.light-grey {
+    color: #000 !important;
+    background-color: #f1f1f1 !important;
+}
+
+.bar:before, .bar:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.bar .bar-item {
+    border: none;
+    display: block;
+    outline: 0;
+    text-align: center;
+    width: 99%;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.center{
+    display: inline-block;
+    width: auto
+}
+
+.navBar {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    width: 99%;
+    overflow: hidden;
+    font-size: 1em;
+    white-space: normal;
+    font-family: cursive,fantasy,Syncopate;
+    text-align: left;
+}
+.white, .hover-white:hover {
+    color: #000 !important;
+    background-color: #fff !important
+}
+
+.large {
+    font-size: 18px !important
+}
+
+.button {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    width: 100%;
+    white-space: normal
+}
+
+    .button:hover {
+        color: #000 !important;
+        background-color: #ccc !important
+    }
+
+
+
+.icon {
+    width: 1.3em;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+}
+
+.img {
+    height: 300px;
+    position: relative;
+    color: #fff;
+    display: flex;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: height 2s linear;
+}
+
+.navColor, .w3-hover-red:hover {
+    color: #fff !important;
+    background-color: #ff9800 !important
+}
+.text_holder{
+    height:3em;
+}
+.margin-right {
+    margin-right: 16px !important
+}
+
+
+.right {
+    float: right !important
+}
+
+.display-container {
+    position: relative
+}
+
+    .display-container:hover .display-hover {
+        display: block
+    }
+
+    .display-container:hover span.display-hover {
+        display: inline-block
+    }
+
+.display-hover {
+    display: none
+}
+
+.content, .w3-auto {
+    margin-left: auto;
+    margin-right: auto
+}
+
+.content {
+    max-width: 980px
+}
+
+.w3-auto {
+    max-width: 1140px
+}
+
+.padding {
+    padding: 8px 16px !important
+}
+
+.w3-col.l6 {
+    width: 49.99999%
+}
+
+.w3-col.m8, .w3-twothird {
+    width: 66.66666%
+}
+
+.container {
+    padding: 0.01em 16px;
+    width: 100%;
+}
+
+.white, .hover-white:hover {
+    color: #000 !important;
+    background-color: #fff !important
+}
+
+.padding-16 {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important
+}
+
+.container:after, .container:before, .panel:after, .panel:before, .row:after, .row:before, .row-padding:after, .row-padding:before {
+    content: "";
+    display: table;
+    clear: both
+}
+.quarter{
+    float: left;
+    width: 25% ;
+    padding:5px;
+}
+
+.w3-col, .half, .w3-third, .w3-twothird, .w3-threequarter, .w3-quarter {
+    float: left;
+    width: 50%
+}
+
+.input {
+    padding: 8px;
+    display: block;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.border {
+    border: 1px solid #ccc !important;
+    border-radius: 25px;
+}
+
+.row-padding, .row-padding > .half, .row-padding > .w3-third, .row-padding > .w3-twothird, .row-padding > .w3-threequarter, .row-padding > .w3-quarter, .row-padding > .w3-col {
+    padding: 0 8px
+}
+
+.dark-grey, .hover-dark-grey:hover, .dark-gray, .hover-dark-gray:hover {
+    color: #fff !important;
+    background-color: #616161 !important
+}
+
+.content, .w3-auto {
+    margin-left: auto;
+    margin-right: auto
+}
+
+.content {
+    max-width: 980px
+}
+
+.w3-auto {
+    max-width: 1140px
+}
+
+.margin {
+    margin: 16px !important
+}
+.destSelect {
+   margin-right:5px;
+}
+.margin-top {
+    margin-top: 16px !important
+}
+
+.margin-bottom {
+    margin-bottom: 16px !important
+}
+
+.text-white, .hover-text-white:hover {
+    color: #fff !important
+}
+
+.large {
+    font-size: 18px !important
+}
+
+.display-bottomleft {
+    position: absolute;
+    left: 0;
+    bottom: 0
+}
+.w3-display-bottomright {
+    position: absolute;
+    right: 0;
+    bottom: 0
+}
+
+.opacity, .w3-hover-opacity:hover {
+    opacity: 0.60
+}
+
+.w3-opacity-off, .hover-opacity-off:hover {
+    opacity: 1
+}
+
+.card, .w3-card-2 {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    margin: 1em;
+}
+
+.black, .w3-hover-black:hover {
+    background-image: url('../../../assets/images/weather.jpg');
+    width: 100%;
+    height: 30%;
+}
+
+.red, .w3-hover-red:hover {
+    color: #fff !important;
+    background-color: #f44336 !important
+}
+
+.padding-large {
+    padding: 12px 24px !important
+}
+
+
+
+.container, .panel {
+    padding: 0.01em 16px;
+}
+
+*, *:before, *:after{
+    box-sizing:inherit;
+}
+
+.display-left {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+}
+
+.orange {
+    color: #fff !important;
+    background-color: #ffc107 !important;
+}
+
+.display-left {
+    position: absolute;
+    top: 65%;
+    left: 40%;
+    transform: translate(-40%,-70%);
+    -ms-transform: translate(-0%,-50%);
+    opacity: 0.8;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+    background: yellow;
+}
+
+
+@media (max-width:600px) {
+    .w3-modal-content {
+        margin: 0 10px;
+        width: auto !important
+    }
+
+    .w3-modal {
+        padding-top: 30px
+    }
+
+    .w3-dropdown-hover.mobile .w3-dropdown-content, .w3-dropdown-click.mobile .w3-dropdown-content {
+        position: relative
+    }
+
+    .w3-hide-small {
+        display: none !important
+    }
+
+    .mobile {
+        display: block;
+        width: 100% !important
+    }
+
+    .bar-item.mobile, .w3-dropdown-hover.mobile, .w3-dropdown-click.mobile {
+        text-align: center
+    }
+
+        .w3-dropdown-hover.mobile, .w3-dropdown-hover.mobile .w3-btn, .w3-dropdown-hover.mobile, .w3-dropdown-click.mobile, .w3-dropdown-click.mobile .w3-btn, .w3-dropdown-click.mobile .button {
+            width: 100%
+        }
+}
+
+.about {
+    -webkit-column-count: 3;
+    -moz-column-count: 3; 
+    column-count: 3;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}

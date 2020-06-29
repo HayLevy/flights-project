@@ -1,0 +1,40 @@
+.header-icon {
+    margin-right: 10px;
+}
+
+.login-container {
+    width: 250px;
+    flex-direction: column;
+}
+
+.form-field {
+    margin-bottom: 10px;
+}
+
+.recover-password {
+    font-size: 12px;
+}
+
+.login-button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.spinner {
+    margin: 5px;
+}
+
+div.form
+{
+    display: block;
+    text-align: center;
+}
+
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
