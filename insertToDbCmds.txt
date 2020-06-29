@@ -1,0 +1,4 @@
+To insert destinations to db, open cmd in mongo installation dir and run this command
+(note that Destination.json file path may be different in your file system, so put full path of it):
+
+mongoimport.exe --host localhost --db flights --collection destinations < D:\AngularProject\Destinastion.json --jsonArray
