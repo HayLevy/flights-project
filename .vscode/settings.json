@@ -1,3 +1,4 @@
 {
-    "debug.node.autoAttach": "on"
+    "debug.node.autoAttach": "on",
+    "python.pythonPath": "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe"
 }

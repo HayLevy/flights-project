@@ -15,6 +15,7 @@ import * as alertify from 'alertify.js'
 })
 export class FlightCreateComponent implements OnInit {
 
+
   flight: Flight;
   flightForm: FormGroup;
   isLoading: boolean;
